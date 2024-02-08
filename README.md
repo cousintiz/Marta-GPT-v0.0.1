@@ -36,7 +36,7 @@ pip3 install -r requirements.txt
 ```
 - Get an OpenAI API key [here](https://platform.openai.com/api-keys)
 - Submit an text file document with the relevant information to feed into the model once you run the app.
-### This window willow open on your browser
+#### This window window will be opened on your browser
 ![alt tag](pagev0.png)
 
 ## ⚒️Development Stack
