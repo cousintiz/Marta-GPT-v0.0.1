@@ -1,6 +1,7 @@
 import streamlit as st
 from io import StringIO
 from langchain.chains import ConversationalRetrievalChain
+from langchain_community.vectorstores import Chroma
 from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_openai import OpenAIEmbeddings
@@ -37,7 +38,7 @@ def setup_langchain():
     # set local docs for langchain
     embeddings = OpenAIEmbeddings(api_key = api_key)
     loader = DirectoryLoader("database/", glob= "**/*.txt")
-    index = VectorstoreIndexCreator(embedding = embeddings).from_loaders([loader])
+    index = VectorstoreIndexCreator(vectorstore_cls=Chroma,embedding = embeddings).from_loaders([loader])
 
     #set up chain params:
     llm = ChatOpenAI(model = gpt_model, api_key = api_key, temperature = 1, max_tokens = 128)
